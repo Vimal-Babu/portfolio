@@ -198,6 +198,106 @@ h2{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(2rem,4vw,3rem);
 }
 .contact-link:hover{background:rgba(108,99,255,0.2);transform:translateY(-2px);}
 
+/* PRODUCTION EXPERIENCE */
+.experience-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:1.5rem;
+}
+
+.experience-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:1.75rem;
+  transition:all 0.25s;
+  position:relative;
+  overflow:hidden;
+}
+
+.experience-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--indigo),var(--pink));
+  opacity:0;
+  transition:opacity 0.2s;
+}
+
+.experience-card:hover{
+  border-color:var(--indigo-dim);
+  transform:translateY(-4px);
+}
+
+.experience-card:hover::before{
+  opacity:1;
+}
+
+.experience-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+
+.experience-name{
+  font-family:'Syne',sans-serif;
+  font-weight:700;
+  font-size:1.2rem;
+  margin-bottom:0.35rem;
+}
+
+.experience-role{
+  color:var(--text-muted);
+  font-size:0.78rem;
+}
+
+.experience-status{
+  flex-shrink:0;
+  background:rgba(108,99,255,0.1);
+  border:1px solid rgba(108,99,255,0.25);
+  color:var(--indigo-light);
+  font-size:0.65rem;
+  padding:3px 9px;
+  border-radius:100px;
+  font-family:'DM Mono',monospace;
+}
+
+.experience-stack{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-bottom:1.25rem;
+}
+
+.experience-desc{
+  color:var(--text-muted);
+  font-size:0.875rem;
+  line-height:1.6;
+  margin-bottom:1rem;
+  font-weight:300;
+}
+
+.experience-desc strong{
+  color:var(--text);
+  font-weight:500;
+}
+
+.experience-list{
+  padding-left:1.1rem;
+  color:var(--text-muted);
+  font-size:0.82rem;
+  line-height:1.7;
+}
+
+.experience-list li{
+  margin-bottom:0.4rem;
+}
+
 /* FOOTER */
 footer{
   text-align:center;padding:2rem 6%;
@@ -210,6 +310,13 @@ footer{
   .about-grid{grid-template-columns:1fr;}
   .nav-links{display:none;}
   h1{letter-spacing:-1px;}
+}
+
+@media(max-width:480px){
+  .experience-header{
+    flex-direction:column;
+    gap:0.6rem;
+  }
 }
 </style>
 </head>
@@ -288,13 +395,92 @@ footer{
       </div>
       <div class="tl-item">
         <div class="tl-dot" style="background:var(--pink);"></div>
-        <div class="tl-year">2024–Now</div>
+        <div class="tl-year">2024–2026</div>
         <div class="tl-desc"><strong>Freelance Developer</strong> — Building and deploying full-stack applications independently.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--pink);"></div>
+        <div class="tl-year">2026–Now</div>
+        <div class="tl-desc"><strong>Python Django Backend Developer Zecser Business LLP</strong> — contributing to production Django applications and backend systems.</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PRODUCTION EXPERIENCE -->
+<section id="experience" style="background:var(--bg2);">
+  <div class="section-label">// production experience</div>
+  <h2>Real-World Backend Work</h2>
+
+  <div class="experience-grid">
+
+    <!-- ZecPath -->
+    <div class="experience-card">
+      <div class="experience-header">
+        <div>
+          <div class="experience-name">ZecPath AI Platform</div>
+          <div class="experience-role">Python Django Backend Developer — Intern</div>
+        </div>
+        <div class="experience-status">Production</div>
+      </div>
+
+      <div class="experience-stack">
+        <span class="tag">Python</span>
+        <span class="tag">Django</span>
+        <span class="tag">DRF</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Redis</span>
+        <span class="tag">Celery</span>
+        <span class="tag">AWS</span>
+      </div>
+
+      <p class="experience-desc">
+        Contributed <strong>41 Git commits</strong> to a live recruitment SaaS
+        connecting candidates, employers, and colleges.
+      </p>
+
+      <ul class="experience-list">
+        <li>Built public job SEO, search, and XML sitemap APIs</li>
+        <li>Implemented automated job notifications using Celery and Redis</li>
+        <li>Developed Aadhaar/PAN document upload and verification workflows</li>
+        <li>Built employer and admin dashboard APIs</li>
+        <li>Implemented candidate/employer account lifecycle features</li>
+        <li>Investigated production issues involving pagination, caching, API routing, and async email</li>
+      </ul>
+    </div>
+
+    <!-- WinnersClubX -->
+    <div class="experience-card">
+      <div class="experience-header">
+        <div>
+          <div class="experience-name">WinnersClubX</div>
+          <div class="experience-role">Production Backend Maintenance</div>
+        </div>
+        <div class="experience-status">Production</div>
+      </div>
+
+      <div class="experience-stack">
+        <span class="tag">Django</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">AWS EC2</span>
+        <span class="tag">Linux</span>
+      </div>
+
+      <p class="experience-desc">
+        Maintaining a live production MLM platform through backend
+        maintenance and deployment support.
+      </p>
+
+      <ul class="experience-list">
+        <li>Investigated and fixed production backend issues</li>
+        <li>Performed code cleanup and maintenance</li>
+        <li>Worked with Django applications running on AWS EC2</li>
+        <li>Supported deployment alignment and production troubleshooting</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-label">// skills</div>
@@ -302,16 +488,19 @@ footer{
   <div class="skills-grid">
     <div class="skill-card"><div class="skill-icon">🐍</div><div class="skill-name">Python</div></div>
     <div class="skill-card"><div class="skill-icon">🎸</div><div class="skill-name">Django</div></div>
+    <div class="skill-card"><div class="skill-icon">🍶</div><div class="skill-name">Django REST Framework</div></div>
     <div class="skill-card"><div class="skill-icon">🍶</div><div class="skill-name">Flask</div></div>
     <div class="skill-card"><div class="skill-icon">🔌</div><div class="skill-name">REST APIs</div></div>
     <div class="skill-card"><div class="skill-icon">🐘</div><div class="skill-name">PostgreSQL</div></div>
-    <div class="skill-card"><div class="skill-icon">⚛️</div><div class="skill-name">React</div></div>
+    <div class="skill-card"><div class="skill-icon">🍶</div><div class="skill-name">Redis</div></div>
+    <div class="skill-card"><div class="skill-icon">🍶</div><div class="skill-name">Celery</div></div>
+    <div class="skill-card"><div class="skill-icon">🍶</div><div class="skill-name">SQLite</div></div>
     <div class="skill-card"><div class="skill-icon">🐙</div><div class="skill-name">Git & GitHub</div></div>
     <div class="skill-card"><div class="skill-icon">📮</div><div class="skill-name">Postman</div></div>
     <div class="skill-card"><div class="skill-icon">☁️</div><div class="skill-name">Render</div></div>
-    <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-name">Netlify</div></div>
     <div class="skill-card"><div class="skill-icon">🤖</div><div class="skill-name">OpenAI Whisper</div></div>
     <div class="skill-card"><div class="skill-icon">🔐</div><div class="skill-name">JWT & OAuth2</div></div>
+    <div class="skill-card"><div class="skill-icon">🍶</div><div class="skill-name">AWS EC2</div></div>
   </div>
 </section>
 
